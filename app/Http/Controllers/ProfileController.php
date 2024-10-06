@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function profile($nama = "Fara Alif Lailla", $kelas = "D", $npm = "2217051153")
-    {
+
+   public function profile($nama = "", $kelas = "", $npm = "")
+   {
+
         $data = [
-            'nama'  => $nama,
+            'nama' => $nama,
             'kelas' => $kelas,
-            'npm'   => $npm,
+            'npm' => $npm,
         ];
 
-        return view('profile')->with($data);
-    }
+       return view('profile', $data);
+   }
 }
