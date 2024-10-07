@@ -6,23 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile Card</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f48fb1;
+            background-color: #FFC0CB;
         }
 
         .profile-card {
-            background-color: #90caf9;
-            border-radius: 15px;
+            background-color: #f7f7f7;
+            border-radius: 18px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            width: 320px;
+            width: 380px;
             text-align: center;
-            padding: 25px;
+            padding: 30px;
         }
 
         .profile-img {
@@ -49,7 +51,7 @@
 
         .profile-info td:first-child {
             font-weight: bold;
-            color: #2e3c62;
+            color: black;
         }
 
         .profile-info td:nth-child(2) {
@@ -57,7 +59,7 @@
         }
 
         .profile-info td:last-child {
-            color: #3c4858;
+            color: black;
         }
     </style>
 </head>
@@ -66,21 +68,21 @@
         <div class="profile-img">
             <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png" alt="Profile Image">
         </div>
-        <table class="profile-info">
+        <table action="{{ route('user.store') }}" method="POST" class="profile-info">
             <tr>
                 <td>Nama</td>
                 <td>:</td>
                 <td><?= $nama ?></td>
             </tr>
             <tr>
-                <td>Kelas</td>
-                <td>:</td>
-                <td><?= $kelas ?></td>
-            </tr>
-            <tr>
                 <td>NPM</td>
                 <td>:</td>
                 <td><?= $npm ?></td>
+            </tr>
+            <tr>
+                <td>Kelas</td>
+                <td>:</td>
+                <td>{{$kelas_id ?? 'Kelas tidak ditemukan'}}</td>
             </tr>
         </table>
     </div>
